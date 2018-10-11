@@ -51,7 +51,7 @@ def scheduleRefresh():
 
 #check if refresh process is complete
 def refreshCompleteCheck():
-  engine = create_engine("postgresql+pg8000://readonly:frkl9820@tableau.nationalfunding.com:8060/workgroup")
+  engine = create_engine("postgresql+pg8000://username:password@tableau.nationalfunding.com:8060/workgroup")
   connection = engine.connect()
   for row in engine.execute("SELECT extracts_refreshed_at From workgroup.public.workbooks where id=1027"):
     refreshPST = row.extracts_refreshed_at - timedelta(hours=7)
